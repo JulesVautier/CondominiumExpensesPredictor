@@ -1,8 +1,7 @@
-from app import app
-
+from app import flask_app
 
 def run_project():
-    app.run(debug=True)
+    flask_app.run(debug=True)
 
 
 if __name__ == '__main__':
