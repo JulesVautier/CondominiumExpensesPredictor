@@ -9,14 +9,19 @@ class DataHelper:
         # reading csv file
         self.data_path = data_path
         self.pd = pd
-        pass
-
-    def start(self):
+        self.readData()
         pass
 
     def readData(self):
-        return self.pd.read_csv(self.data_path, nrows=2)
+        self.df = self.pd.read_csv(self.data_path, nrows=2)
 
     def getDataFrame(self):
-        return self.pd.DataFrame()
+        return self.df
 
+    def getDatas(self):
+        return self.df
+
+    def getData(self, id):
+        return self.df.loc[[id]]
+
+dataHelper = DataHelper()

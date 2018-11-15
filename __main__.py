@@ -1,9 +1,8 @@
-from app import DataHelper
+from app import app
 
 
 def run_project():
-    dataHelper = DataHelper()
-    dataHelper.start()
+    app.run(debug=True)
 
 
 if __name__ == '__main__':
