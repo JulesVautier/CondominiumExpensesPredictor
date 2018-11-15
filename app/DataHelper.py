@@ -13,13 +13,13 @@ class DataHelper:
         pass
 
     def readData(self):
-        self.df = self.pd.read_csv(self.data_path, nrows=2)
+        self.df = self.pd.read_csv(self.data_path, nrows=100)
 
     def getDataFrame(self):
         return self.df
 
-    def getDatas(self):
-        return self.df
+    def getDatas(self, limite_one, limite_two):
+        return self.df.loc[limite_one:limite_two]
 
     def getData(self, id):
         return self.df.loc[[id]]
