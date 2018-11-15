@@ -6,12 +6,9 @@ DATA_PATH = './ressources/dataset_annonces.csv'
 def check(func):
     def wrapper(self, id):
         try:
-            print('try ', id)
             self.df.loc[id]
         except:
-            print('except ', id)
             return 401
-        print('ok ', id)
         return func(self, id)
 
     return wrapper

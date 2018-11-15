@@ -37,4 +37,3 @@ DEALER_NAME               float64
 DEALER_TYPE               float64
 REFERENCE_NUMBER           object
 ENERGY_CLASSIFICATION      object
-dtype: object
