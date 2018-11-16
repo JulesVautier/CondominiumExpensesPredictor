@@ -1,6 +1,3 @@
-import os
-
-from flask_marshmallow import fields
 from marshmallow import fields
 
 from app import ma
@@ -56,14 +53,8 @@ class DataSchema(ma.Schema):
     REFERENCE_NUMBER = fields.String(required=False)
     ENERGY_CLASSIFICATION = fields.String(required=False)
     ordered = False
+    class Meta:
+        exclude = ('ID',)
 
 data_schema = DataSchema()
 datas_schema = DataSchema(many=True)
-
-# class UserSchema(ma.Schema):
-#     name = fields.fields.String(required=False)(required=True)
-#     age = fields.fields.Integer(required=True)
-#     ID = fields.fields.Integer(required=True)
-#
-# result = UserSchema().load({'age': 42, 'ID':1}, partial=('name',))
-# print(result)

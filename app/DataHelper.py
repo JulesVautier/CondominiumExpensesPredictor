@@ -50,5 +50,12 @@ class DataHelper:
         self.df.drop(id, inplace=True)
         return 200
 
+    def postData(self, data):
+        series = self.pd.Series(data)
+        try:
+            self.df.append(series, ignore_index=True)
+            return "201"
+        except:
+            return "501"
 
 dataHelper = DataHelper()

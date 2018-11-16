@@ -41,5 +41,4 @@ def postOneRow():
     res = data_schema.load(data)
     if res.errors:
         return jsonify(res.errors)
-    data = res.data
-    return jsonify(data)
+    return jsonify(dataHelper.postData(res.data))
