@@ -23,6 +23,8 @@ class DataHelper:
         self.readData()
         self.reIndex()
         self.hasTrainingSet = False
+        self.isTrained = False
+        self.trainResults = False
         pass
 
     def readData(self):
@@ -83,6 +85,7 @@ class DataHelper:
         print(self.y_train.shape)
         print(self.y_test.shape)
         self.hasTrainingSet = True
+        self.isTrained = False
         return "200"
 
     def cleanDataSet(self):
@@ -125,12 +128,31 @@ class DataHelper:
         # making prediction for out of sample data
         sample = [[3, 5, 4, 2], [2, 3, 5, 4]]
         preds = knn.predict(sample)
-        # pred_species = [iris.target_names[p] for p in preds]
+        # self.pred_species = [iris.target_names[p] for p in preds]
         # print("Predictions:", pred_species)
 
         # saving the model
         from sklearn.externals import joblib
         joblib.dump(knn, './ressources/condimonium_knn.pkl')
+        self.isTrained = True
+        #TODO
+        self.trainResults = "ok"
+        return self.trainResults, "200"
+
+    def isTrainedfct(self):
+        if self.isTrained is False:
+            return "False", "200"
+        else:
+            return self.isTrained, self.trainResults, "200"
+
+    def getTrainResult(self):
+        if self.isTrained is False:
+            return "Not trained.", "401"
+        else:
+            return self.trainResults, "200"
+
+    def predict(self, data):
+        #TODO
         return "200"
 
 

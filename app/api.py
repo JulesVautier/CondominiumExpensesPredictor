@@ -45,6 +45,19 @@ def postOneRow():
         return jsonify(res.errors)
     return jsonify(dataHelper.postData(res.data))
 
+@flask_app.route("/data/predict", methods=['POST'])
+def predict():
+    data = request.get_json()
+    try:
+        data_schema.validate(data)
+    except ValidationError as err:
+        print('error', err.messages)
+        return jsonify(err)
+    res = data_schema.load(data)
+    if res.errors:
+        return jsonify(res.errors)
+    return jsonify(dataHelper.predict(res.data))
+
 
 @flask_app.route("/data/train")
 def train():
@@ -64,3 +77,12 @@ def createTrainSet():
 @flask_app.route("/data/trainAll")
 def trainAll():
     return jsonify(dataHelper.trainAll())
+
+@flask_app.route("/data/isTrained")
+def isTrained():
+    return jsonify(dataHelper.isTrainedfct())
+
+@flask_app.route("/data/trainResults")
+def getTrainResult():
+    return jsonify(dataHelper.getTrainResult())
+
