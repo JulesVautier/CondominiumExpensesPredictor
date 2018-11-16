@@ -4,6 +4,8 @@ The goal is to predict condominium expenses from a real estate [dataset](https:/
 
 Just install Jupiter Notebook and launch predictor.ipynb
 
+I created a Flask API to remotly train the set.
+
 [STATUS: UNFINISHED YET]
 
 Keywords: SKlearn Scikit Learn Python Pandas data analysis predict condominium expenses
