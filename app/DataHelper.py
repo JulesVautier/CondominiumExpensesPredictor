@@ -29,7 +29,7 @@ class DataHelper:
 
     def readData(self):
         print('read_data')
-        self.df = self.pd.read_csv(self.data_path, nrows=100)
+        self.df = self.pd.read_csv(self.data_path, nrows=2000)
 
     def reIndex(self):
         # self.df.drop(['ID'], inplace=True, axis=1)
@@ -153,7 +153,7 @@ class DataHelper:
 
     def predict(self, data):
         #TODO
-        return "200"
+        return (self.df['CONDOMINIUM_EXPENSES'].mean())
 
 
 dataHelper = DataHelper()
