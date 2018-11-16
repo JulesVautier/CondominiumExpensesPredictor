@@ -25,10 +25,12 @@ def getData(id):
     resp = dataHelper.getData(id)
     return jsonify(resp)
 
+
 @flask_app.route("/data/<int:id>", methods=['DELETE'])
 def deleteData(id):
     resp = dataHelper.deleteData(id)
     return jsonify(resp)
+
 
 @flask_app.route("/data", methods=['POST'])
 def postOneRow():
@@ -42,3 +44,23 @@ def postOneRow():
     if res.errors:
         return jsonify(res.errors)
     return jsonify(dataHelper.postData(res.data))
+
+
+@flask_app.route("/data/train")
+def train():
+    return jsonify(dataHelper.train())
+
+
+@flask_app.route("/data/clean")
+def clean():
+    return jsonify(dataHelper.clean())
+
+
+@flask_app.route("/data/createTrainSet")
+def createTrainSet():
+    return jsonify(dataHelper.createTrainSet())
+
+
+@flask_app.route("/data/trainAll")
+def trainAll():
+    return jsonify(dataHelper.trainAll())
